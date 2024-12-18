@@ -14,8 +14,8 @@ namespace FunWithStrings
             List<string> stringList = new List<string> { "Apple", "AppleBar", "AppleFoo", "Appleicious" };
             // Use ForEach to iterate through the list and write each item to the console
             stringList.ForEach(item => Console.WriteLine(item));
-            SortEm sortEm = new SortEm();
-            Console.WriteLine("Result of sortEm: " + sortEm.execute(stringList));
+            FindCommonString findCommonString = new FindCommonString();
+            Console.WriteLine("Result of findCommonString: " + findCommonString.execute(stringList));
         }
     }
 }

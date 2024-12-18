@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace StringCommon
 {
-    public class SortEm : ISortEm
+    public class FindCommonString : IFindCommonString
     {
-        public SortEm() { }
+        public FindCommonString() { }
         public string execute(List<string> items)
         {
-            items.OrderBy(item => item);
+            var orderedItems = items.OrderBy(item => item.Length);
             string result = "";
-            if (items == null || items.Count() == 0)
+            if (orderedItems == null || orderedItems.Count() == 0)
             {
                 Console.WriteLine("Nothing to see here");
                 return result;
             }
-            int minLen = items.First().Length;
+            int minLen = orderedItems.First().Length;
 
             Console.WriteLine("minLen = " + minLen);
             for (int i = 0; i < minLen; i++)
             {
-                char[] chars = items.Select(item => item[i]).ToArray();
+                char[] chars = orderedItems.Select(item => item[i]).ToArray();
                 Console.WriteLine("char: " + chars[0]);
                 // Check if all items in the array are equal
                 bool allEqual = chars.All(c => c == chars[0]);
@@ -36,9 +36,7 @@ namespace StringCommon
                 {
                     break;
                 }
-
             }
-
             return result;
         }
     }
